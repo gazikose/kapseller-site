@@ -1,163 +1,623 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kapseller LLC</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kapseller LLC</title>
+  <meta name="description" content="Kapseller LLC is a Wyoming-registered digital platform development company (est. 2025) developing proprietary initiatives including Tutoryum and Tasio." />
+  <meta name="theme-color" content="#ffffff" />
 
-<style>
-:root{
---bg:#0c0f14;
---card:#141922;
---text:#ffffff;
---muted:#9aa3b2;
---accent:#4da3ff;
---border:#1f2630;
-}
+  <style>
+    :root{
+      --bg: #ffffff;
+      --bg2: #fafafa;
+      --fg: #111827;       /* slate-900 */
+      --muted: #6b7280;    /* gray-500 */
+      --muted2: #9ca3af;   /* gray-400 */
+      --border: #e5e7eb;   /* gray-200 */
+      --shadow: 0 14px 40px rgba(17,24,39,.08);
+      --shadow2: 0 10px 28px rgba(17,24,39,.06);
+      --radius: 18px;
+      --radius2: 22px;
+      --accent: #2563eb;   /* blue-600 */
+      --accent2:#1d4ed8;   /* blue-700 */
+      --success:#16a34a;   /* green-600 */
+      --max: 1120px;
 
-body{
-margin:0;
-font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;
-background:var(--bg);
-color:var(--text);
-line-height:1.6;
-}
+      --h1: clamp(2.3rem, 4.8vw, 3.4rem);
+      --h2: clamp(1.5rem, 2.4vw, 2rem);
+      --p: 1.05rem;
+    }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:60px 20px;
-}
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height: 1.6;
+    }
 
-.hero{
-text-align:center;
-padding:80px 20px 40px;
-}
+    /* Top nav */
+    .nav{
+      position: sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.78);
+      border-bottom: 1px solid rgba(229,231,235,.8);
+    }
+    .nav-inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color: var(--fg);
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .brand img{
+      width:34px;height:34px;
+      border-radius:10px;
+      object-fit:contain;
+      border: 1px solid var(--border);
+      background: #fff;
+      padding:4px;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .nav-links a{
+      text-decoration:none;
+      color: var(--muted);
+      font-weight:600;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover{ color: var(--fg); }
 
-.hero img{
-width:150px;
-margin-bottom:18px;
-}
+    .nav-cta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
 
-h1{
-font-size:42px;
-margin:0 0 10px;
-}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background:#fff;
+      color: var(--fg);
+      font-weight:700;
+      text-decoration:none;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      white-space:nowrap;
+      cursor:pointer;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: var(--shadow2);
+      border-color: #d1d5db;
+    }
+    .btn-primary{
+      background: linear-gradient(180deg, #2f6df6 0%, var(--accent) 100%);
+      border-color: rgba(37,99,235,.25);
+      color:#fff;
+    }
+    .btn-primary:hover{
+      background: linear-gradient(180deg, #2a66ef 0%, var(--accent2) 100%);
+      border-color: rgba(29,78,216,.28);
+    }
 
-.subtitle{
-color:var(--muted);
-font-size:18px;
-}
+    /* Layout */
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 18px;
+    }
 
-.section-title{
-font-size:28px;
-margin-bottom:18px;
-}
+    /* Hero */
+    .hero{
+      padding: 56px 0 22px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-260px -180px auto -180px;
+      height: 520px;
+      background:
+        radial-gradient(closest-side, rgba(37,99,235,.18), rgba(37,99,235,0) 60%),
+        radial-gradient(closest-side, rgba(16,185,129,.14), rgba(16,185,129,0) 62%);
+      filter: blur(2px);
+      pointer-events:none;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 26px;
+      align-items: center;
+      position:relative;
+    }
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns:1fr; }
+    }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:22px;
-}
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(229,231,235,.9);
+      background: rgba(250,250,250,.85);
+      color: var(--muted);
+      font-weight:700;
+      font-size: .9rem;
+      width: fit-content;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(37,99,235,.12);
+    }
 
-.card{
-background:var(--card);
-padding:26px;
-border-radius:14px;
-border:1px solid var(--border);
-transition:.25s ease;
-}
+    h1{
+      font-size: var(--h1);
+      line-height: 1.08;
+      margin: 14px 0 12px;
+      letter-spacing: -0.02em;
+    }
+    .lead{
+      font-size: var(--p);
+      color: var(--muted);
+      max-width: 62ch;
+      margin: 0 0 18px;
+    }
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      color: var(--muted2);
+      font-weight:700;
+      font-size: .95rem;
+      margin-top: 10px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      box-shadow: 0 1px 0 rgba(17,24,39,.02);
+    }
 
-.card:hover{
-transform:translateY(-6px);
-}
+    .hero-card{
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      position:relative;
+    }
+    .hero-logo{
+      width: 100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      border-radius: 16px;
+      border:1px dashed rgba(229,231,235,.9);
+      background: rgba(250,250,250,.9);
+    }
+    .hero-logo img{
+      max-width: 210px;
+      width: 100%;
+      height:auto;
+      object-fit:contain;
+    }
+    .hero-card small{
+      display:block;
+      color: var(--muted);
+      margin-top: 12px;
+      font-weight:700;
+      text-align:center;
+    }
 
-.card img{
-height:50px;
-margin-bottom:12px;
-}
+    /* Sections */
+    section{
+      padding: 34px 0;
+    }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 16px;
+    }
+    h2{
+      font-size: var(--h2);
+      margin:0;
+      letter-spacing: -0.01em;
+    }
+    .sub{
+      color: var(--muted);
+      margin:0;
+      max-width: 70ch;
+      font-weight:600;
+    }
 
-.badge{
-display:inline-block;
-margin-top:10px;
-font-size:12px;
-background:#20314d;
-padding:5px 12px;
-border-radius:20px;
-color:#8fb8ff;
-}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+    .card{
+      grid-column: span 6;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow2);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      border-color: #d1d5db;
+    }
+    @media (max-width: 900px){
+      .card{ grid-column: span 12; }
+    }
 
-footer{
-text-align:center;
-color:var(--muted);
-padding:30px;
-font-size:13px;
-border-top:1px solid var(--border);
-margin-top:50px;
-}
-</style>
+    .prod-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 8px;
+    }
+    .prod-brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+    .prod-brand img{
+      width:46px;height:46px;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background:#fff;
+      padding:6px;
+      object-fit:contain;
+    }
+    .prod-brand h3{
+      margin:0;
+      font-size: 1.12rem;
+      letter-spacing: -.01em;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(22,163,74,.22);
+      background: rgba(22,163,74,.08);
+      color: var(--success);
+      font-weight:800;
+      font-size: .82rem;
+      white-space:nowrap;
+    }
+    .tag .mini{
+      width:8px;height:8px;border-radius:999px;background: var(--success);
+      box-shadow: 0 0 0 5px rgba(22,163,74,.12);
+    }
+    .card p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-weight:600;
+    }
 
+    /* Two-up info cards */
+    .info{
+      grid-column: span 6;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow2);
+    }
+    .info h3{
+      margin:0 0 8px;
+      font-size: 1.05rem;
+      letter-spacing: -.01em;
+    }
+    .info ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-weight:600;
+    }
+    .info li{ margin: 6px 0; }
+
+    /* Contact */
+    .contact{
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap:wrap;
+    }
+    .contact-left{
+      min-width: 260px;
+    }
+    .contact-left strong{
+      display:block;
+      font-size: 1.05rem;
+      letter-spacing:-.01em;
+      margin-bottom: 6px;
+    }
+    .contact-left .line{
+      color: var(--muted);
+      font-weight:700;
+    }
+    .contact-right{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    /* Footer */
+    footer{
+      padding: 26px 0 40px;
+      color: var(--muted2);
+      font-weight:700;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+      margin-top: 26px;
+    }
+    .foot{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .foot a{
+      color: var(--muted);
+      text-decoration:none;
+      font-weight:800;
+    }
+    .foot a:hover{ color: var(--fg); }
+
+    /* Small helpers */
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); border:0;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Kapseller LLC home">
+        <img src="assets/kapseller.png" alt="Kapseller LLC logo">
+        <span>Kapseller LLC</span>
+      </a>
 
-<div class="hero">
-<img src="assets/kapseller.png">
-<h1>Kapseller LLC</h1>
-<div class="subtitle">
-Digital Platform Development Company<br>
-Wyoming, United States • Established 2025
-</div>
-</div>
+      <div class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#platforms">Platforms</a>
+        <a href="#operations">Operations</a>
+        <a href="#contact">Contact</a>
+      </div>
 
-<div class="container">
+      <div class="nav-cta">
+        <a class="btn" href="mailto:info@kapseller.com">Email</a>
+        <a class="btn btn-primary" href="https://wa.me/905324438816?text=Hello%20Kapseller%20LLC%2C%20I%20would%20like%20to%20get%20in%20touch." target="_blank" rel="noopener">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
 
-<h2 class="section-title">About</h2>
-<p>
-Kapseller LLC is a software platform development entity focused on building and maintaining proprietary digital systems intended for global markets. Activities include software design, development, testing, and lifecycle management of internally developed platforms.
-</p>
+  <main id="top">
+    <div class="wrap hero">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker"><span class="dot"></span> Informational corporate website</div>
+          <h1>Building proprietary digital platforms for global markets.</h1>
+          <p class="lead">
+            Kapseller LLC is a Wyoming-registered company (est. 2025) focused on the design, development, testing, and lifecycle
+            management of internally developed software initiatives across education and logistics domains.
+          </p>
 
-<h2 class="section-title">Platforms Under Development</h2>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
+            <a class="btn btn-primary" href="#platforms">Explore Platforms</a>
+            <a class="btn" href="#contact">Contact</a>
+          </div>
 
-<div class="cards">
+          <div class="meta" aria-label="Company facts">
+            <span class="pill">Wyoming, United States</span>
+            <span class="pill">Established 2025</span>
+            <span class="pill">Digital operations</span>
+          </div>
+        </div>
 
-<div class="card">
-<img src="assets/tutoryum.png">
-<h3>Tutoryum</h3>
-<p>
-An education technology platform designed to facilitate structured learning connections between participants and institutions.
-</p>
-<div class="badge">Currently in Development</div>
-</div>
+        <div class="hero-card" aria-label="Company logo card">
+          <div class="hero-logo">
+            <img src="assets/kapseller.png" alt="Kapseller LLC logo">
+          </div>
+          <small>Corporate footprint for partners and institutions</small>
+        </div>
+      </div>
+    </div>
 
-<div class="card">
-<img src="assets/tasio.png">
-<h3>Tasio</h3>
-<p>
-A logistics coordination platform intended to improve operational matching and efficiency across transportation networks.
-</p>
-<div class="badge">Currently in Development</div>
-</div>
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>About Kapseller LLC</h2>
+          <p class="sub">Clear, factual company profile — no marketing exaggeration.</p>
+        </div>
 
-</div>
+        <div class="grid">
+          <div class="info">
+            <h3>Company Overview</h3>
+            <p class="sub" style="margin-top:0;">
+              Kapseller LLC is a digital platform development entity. The company builds and maintains proprietary software systems intended for international markets.
+            </p>
+            <ul>
+              <li>Core activities: software design, development, testing, deployment</li>
+              <li>Operations: ongoing internal workflows and iteration cycles</li>
+              <li>Scope: multiple independent initiatives housed under one entity</li>
+            </ul>
+          </div>
 
-<h2 class="section-title">Operations</h2>
-<p>
-Kapseller LLC maintains ongoing internal development workflows and product iteration prior to commercial launch. The company operates digitally and serves international markets.
-</p>
+          <div class="info">
+            <h3>Positioning</h3>
+            <p class="sub" style="margin-top:0;">
+              This website is informational. It presents the organization and its development initiatives for transparency with partners, service providers, and institutions.
+            </p>
+            <ul>
+              <li>Not an investor/fundraising page</li>
+              <li>No sales funnels or aggressive lead capture</li>
+              <li>Neutral, compliance-friendly wording</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<h2 class="section-title">Contact</h2>
-<p>
-Business inquiries:<br>
-info@yourdomain.com
-</p>
+    <section id="platforms">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Platforms under development</h2>
+          <p class="sub">Current internal initiatives are actively being built and are not yet commercially launched.</p>
+        </div>
 
-</div>
+        <div class="grid">
+          <article class="card" aria-label="Tutoryum platform">
+            <div class="prod-top">
+              <div class="prod-brand">
+                <img src="assets/tutoryum.png" alt="Tutoryum logo">
+                <div>
+                  <h3>Tutoryum</h3>
+                  <div class="sub" style="margin:2px 0 0;">Education technology</div>
+                </div>
+              </div>
+              <div class="tag"><span class="mini"></span> In development</div>
+            </div>
+            <p>
+              Tutoryum is an education platform designed to facilitate structured learning connections between participants and institutions through scalable digital tooling.
+            </p>
+          </article>
 
-<footer>
-© 2025 Kapseller LLC — Wyoming, United States
-</footer>
+          <article class="card" aria-label="Tasio platform">
+            <div class="prod-top">
+              <div class="prod-brand">
+                <img src="assets/tasio.png" alt="Tasio logo">
+                <div>
+                  <h3>Tasio</h3>
+                  <div class="sub" style="margin:2px 0 0;">Logistics coordination</div>
+                </div>
+              </div>
+              <div class="tag"><span class="mini"></span> In development</div>
+            </div>
+            <p>
+              Tasio is a logistics and transportation coordination platform intended to improve operational matching and efficiency across transportation networks.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
+    <section id="operations">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Operations</h2>
+          <p class="sub">How the company operates — stated plainly.</p>
+        </div>
+
+        <div class="grid">
+          <div class="info" style="grid-column: span 12;">
+            <h3>Development & Lifecycle Management</h3>
+            <p class="sub" style="margin-top:0;">
+              Kapseller LLC maintains ongoing internal development workflows and product iteration prior to commercial launch. The company operates digitally and
+              develops proprietary platforms with a focus on reliability, scalability, and clear operational structure.
+            </p>
+            <ul>
+              <li>Iteration cycles before public release</li>
+              <li>Platform maintenance and operational readiness</li>
+              <li>International market orientation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p class="sub">Use email or WhatsApp for direct communication.</p>
+        </div>
+
+        <div class="contact">
+          <div class="contact-left">
+            <strong>Kapseller LLC</strong>
+            <div class="line">Wyoming, United States • Established 2025</div>
+            <div class="line" style="margin-top:6px;">
+              Email: <a href="mailto:info@kapseller.com" style="color:var(--accent); font-weight:900; text-decoration:none;">info@kapseller.com</a>
+            </div>
+          </div>
+
+          <div class="contact-right">
+            <a class="btn" href="mailto:info@kapseller.com">Email</a>
+            <a class="btn btn-primary" href="https://wa.me/905324438816?text=Hello%20Kapseller%20LLC%2C%20I%20would%20like%20to%20get%20in%20touch." target="_blank" rel="noopener">
+              WhatsApp Message
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap foot">
+        <div>© 2025 Kapseller LLC — Wyoming, United States</div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="#about">About</a>
+          <a href="#platforms">Platforms</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </main>
 </body>
 </html>
