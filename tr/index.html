@@ -1,1 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapseller LLC</title>
+
+<style>
+
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+background:#fff;
+color:#111;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+padding:20px;
+}
+
+h1{
+font-size:52px;
+line-height:1.1;
+margin-bottom:12px;
+}
+
+h2{
+font-size:30px;
+margin-top:70px;
+}
+
+p{
+font-size:18px;
+color:#555;
+}
+
+.card{
+background:#fff;
+border-radius:16px;
+padding:22px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+transition:.25s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #eee;
+padding:14px 0;
+position:sticky;
+top:0;
+background:white;
+}
+
+.nav-right{
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.btn{
+padding:10px 16px;
+border-radius:8px;
+font-weight:600;
+text-decoration:none;
+}
+
+.btn-outline{
+border:1px solid #ddd;
+color:#111;
+}
+
+.btn-primary{
+background:#2563eb;
+color:white;
+}
+
+select{
+padding:8px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+.hero{
+display:grid;
+grid-template-columns:1.3fr .7fr;
+gap:30px;
+padding:80px 0 40px;
+}
+
+.hero img{
+width:100%;
+max-width:260px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+footer{
+margin-top:80px;
+padding:30px 0;
+border-top:1px solid #eee;
+color:#777;
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="nav">
+<strong>Kapseller LLC</strong>
+
+<div class="nav-right">
+
+<select onchange="changeLang(this.value)">
+<option value="tr">Türkçe</option>
+<option value="en">English</option>
+</select>
+
+<a class="btn btn-outline" href="mailto:info@kapseller.com">E-posta</a>
+
+<a class="btn btn-primary"
+href="https://wa.me/905324438816"
+target="_blank">WhatsApp</a>
+
+</div>
+</div>
+
+<div class="hero">
+
+<div>
+<h1>
+Küresel dijital pazaryeri platformları geliştiriyor ve işletiyoruz.
+</h1>
+
+<p>
+Kapseller LLC, uluslararası kullanım için tasarlanan yazılım
+platformlarını geliştiren, sahiplenen ve işleten bir şirkettir.
+Kuruluş, üçüncü taraf danışmanlık yerine kendi ürünlerinin
+geliştirilmesi ve yaşam döngüsü yönetimine odaklanır.
+</p>
+
+</div>
+
+<div>
+<img src="../assets/kapseller.png">
+</div>
+
+</div>
+
+<h2>Geliştirme Aşamasındaki Platformlar</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="../assets/tutoryum.png" height="50">
+<p>
+Tutoryum, öğrenciler ile eğitmenleri dijital eşleştirme
+iş akışları üzerinden buluşturan pazaryeri yapısında
+bir eğitim platformudur.
+</p>
+</div>
+
+<div class="card">
+<img src="../assets/tasio.png" height="50">
+<p>
+Tasio, lojistik katılımcıları arasında operasyonel
+eşleştirme sağlayan taşıma koordinasyon
+pazaryeri platformudur.
+</p>
+</div>
+
+</div>
+
+<h2>Şirket Kapsamı</h2>
+
+<div class="card">
+<p>
+Kapseller LLC, dahili olarak oluşturulan dijital
+girişimleri tasarlar, geliştirir ve yönetir.
+Faaliyetler platform mimarisi, mühendislik uygulaması,
+doğrulama süreçleri ve yayına hazırlık aşamalarını kapsar.
+</p>
+</div>
+
+<h2>İletişim</h2>
+
+<div class="card">
+<p>
+info@kapseller.com<br>
+WhatsApp: +90 532 443 88 16
+</p>
+</div>
+
+<footer>
+© 2025 Kapseller LLC — Wyoming, Amerika Birleşik Devletleri
+</footer>
+
+</div>
+
+<script>
+
+function changeLang(l){
+localStorage.setItem("site_lang",l)
+
+if(l==="en"){
+location.href="/"
+}else{
+location.href="/tr/"
+}
+}
+
+</script>
+
+</body>
+</html>
 
