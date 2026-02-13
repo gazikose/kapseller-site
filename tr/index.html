@@ -230,6 +230,17 @@ WhatsApp: +90 532 443 88 16
 <script>
 
 function changeLang(l){
+
+localStorage.setItem("site_lang",l)
+
+const base="/kapseller-site/"
+
+if(l==="en") location.href=base;
+else location.href=base + l + "/";
+
+}
+
+
 localStorage.setItem("site_lang",l)
 
 if(l==="en"){
