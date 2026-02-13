@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Kapseller LLC</title>
 
 <style>
@@ -11,8 +12,8 @@
 
 body{
 margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial;
-background:#ffffff;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+background:#fff;
 color:#111;
 }
 
@@ -23,31 +24,31 @@ padding:20px;
 }
 
 h1{
-font-size:48px;
+font-size:52px;
 line-height:1.1;
-margin-bottom:10px;
+margin-bottom:12px;
 }
 
 h2{
 font-size:30px;
-margin-top:60px;
+margin-top:70px;
 }
 
 p{
-color:#555;
 font-size:18px;
+color:#555;
 }
 
 .card{
 background:#fff;
-border-radius:14px;
-padding:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+border-radius:16px;
+padding:22px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
 transition:.25s;
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
 }
 
 /* ---------- NAV ---------- */
@@ -57,20 +58,24 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 border-bottom:1px solid #eee;
-padding:12px 0;
+padding:14px 0;
+position:sticky;
+top:0;
+background:white;
+z-index:999;
 }
 
 .nav-right{
 display:flex;
-align-items:center;
 gap:12px;
+align-items:center;
 }
 
 .btn{
 padding:10px 16px;
 border-radius:8px;
-text-decoration:none;
 font-weight:600;
+text-decoration:none;
 }
 
 .btn-outline{
@@ -84,18 +89,18 @@ color:white;
 }
 
 select{
-padding:7px;
-border-radius:6px;
+padding:8px;
+border-radius:8px;
 border:1px solid #ddd;
 }
 
 /* ---------- HERO ---------- */
 
 .hero{
-padding:70px 0 40px;
 display:grid;
 grid-template-columns:1.3fr .7fr;
 gap:30px;
+padding:80px 0 40px;
 }
 
 .hero img{
@@ -122,7 +127,7 @@ gap:20px;
 /* ---------- FOOTER ---------- */
 
 footer{
-margin-top:60px;
+margin-top:80px;
 padding:30px 0;
 border-top:1px solid #eee;
 color:#777;
@@ -137,30 +142,16 @@ font-size:14px;
 <div class="container">
 
 <!-- NAV -->
+
 <div class="nav">
 
 <strong>Kapseller LLC</strong>
 
 <div class="nav-right">
 
-<select id="lang-switch">
-<option>English</option>
-<option>中文</option>
-<option>हिन्दी</option>
-<option>Español</option>
-<option>العربية</option>
-<option>Português</option>
-<option>Français</option>
-<option>Deutsch</option>
-<option>日本語</option>
-<option>한국어</option>
-<option>Italiano</option>
-<option>Türkçe</option>
-<option>فارسی</option>
-<option>עברית</option>
-<option>Nederlands</option>
-<option>Svenska</option>
-<option>Polski</option>
+<select onchange="changeLang(this.value)">
+<option value="en">English</option>
+<option value="tr">Türkçe</option>
 </select>
 
 <a class="btn btn-outline" href="mailto:info@kapseller.com">Email</a>
@@ -173,7 +164,8 @@ target="_blank">WhatsApp</a>
 </div>
 
 <!-- HERO -->
-<div class="hero">
+
+<div class="hero reveal">
 
 <div>
 <h1>
@@ -181,10 +173,10 @@ Building and operating global digital marketplace platforms.
 </h1>
 
 <p>
-Kapseller LLC is a Wyoming-registered company developing, owning,
-and operating proprietary software platforms for international use.
-The organization focuses on internal product creation and lifecycle
-management rather than third-party consulting services.
+Kapseller LLC develops, owns, and operates proprietary software
+platforms designed for international use. The company focuses on
+internal product creation and lifecycle management rather than
+third-party consulting.
 </p>
 
 </div>
@@ -197,60 +189,49 @@ management rather than third-party consulting services.
 
 <!-- PLATFORMS -->
 
-<h2>Platforms Under Development</h2>
+<h2 class="reveal">Platforms Under Development</h2>
 
 <div class="grid">
 
-<div class="card">
+<div class="card reveal">
 <img src="assets/tutoryum.png" height="50">
 <p>
-Tutoryum is a marketplace-style education platform designed to
-connect learners and instructors through structured digital
-coordination and matching workflows.
+Tutoryum is a marketplace education platform connecting learners
+and instructors through structured digital coordination workflows.
 </p>
 </div>
 
-<div class="card">
+<div class="card reveal">
 <img src="assets/tasio.png" height="50">
 <p>
-Tasio is a transportation coordination marketplace intended to
-streamline communication and operational matching across logistics
-participants.
+Tasio is a transportation coordination marketplace enabling
+operational matching across logistics participants.
 </p>
 </div>
 
 </div>
 
-<!-- COMPANY SCOPE -->
+<!-- SCOPE -->
 
-<h2>Company Scope</h2>
+<h2 class="reveal">Company Scope</h2>
 
-<div class="card">
-
+<div class="card reveal">
 <p>
 Kapseller LLC builds and manages internally originated digital
-initiatives. Core activities include platform architecture,
-engineering implementation, validation processes, and operational
-readiness prior to launch.
+initiatives, covering platform architecture, engineering
+implementation, validation, and deployment readiness.
 </p>
-
 </div>
 
 <!-- CONTACT -->
 
-<h2>Contact</h2>
+<h2 class="reveal">Contact</h2>
 
-<div class="card">
-
-<p>
-For recommendations, support, or general inquiries:
-</p>
-
+<div class="card reveal">
 <p>
 info@kapseller.com<br>
 WhatsApp: +90 532 443 88 16
 </p>
-
 </div>
 
 <footer>
@@ -258,6 +239,66 @@ WhatsApp: +90 532 443 88 16
 </footer>
 
 </div>
+
+<!-- ---------- SCRIPTS ---------- -->
+
+<script>
+
+/* Scroll reveal */
+
+const obs = new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.style.opacity=1
+e.target.style.transform="translateY(0px)"
+}
+})
+})
+
+document.querySelectorAll(".reveal").forEach(el=>{
+el.style.opacity=0
+el.style.transform="translateY(20px)"
+el.style.transition="all .6s ease"
+obs.observe(el)
+})
+
+/* Language routing */
+
+function changeLang(l){
+localStorage.setItem("site_lang",l)
+
+if(l==="tr"){
+location.href="/tr/"
+}else{
+location.href="/"
+}
+}
+
+/* Auto detect */
+
+(function(){
+
+const saved=localStorage.getItem("site_lang")
+
+if(saved){
+if(saved==="tr" && !location.pathname.startsWith("/tr")){
+location.href="/tr/"
+}
+return
+}
+
+const lang=navigator.language
+
+if(lang.startsWith("tr")){
+localStorage.setItem("site_lang","tr")
+location.href="/tr/"
+}else{
+localStorage.setItem("site_lang","en")
+}
+
+})()
+
+</script>
 
 </body>
 </html>
