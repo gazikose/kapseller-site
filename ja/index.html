@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapseller LLC</title>
+
+<style>
+
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+background:#fff;
+color:#111;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+padding:20px;
+}
+
+h1{
+font-size:48px;
+line-height:1.2;
+margin-bottom:12px;
+}
+
+h2{
+font-size:28px;
+margin-top:70px;
+}
+
+p{
+font-size:18px;
+color:#555;
+}
+
+.card{
+background:#fff;
+border-radius:16px;
+padding:22px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+transition:.25s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #eee;
+padding:14px 0;
+background:white;
+}
+
+.nav-right{
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.btn{
+padding:10px 16px;
+border-radius:8px;
+font-weight:600;
+text-decoration:none;
+}
+
+.btn-outline{
+border:1px solid #ddd;
+color:#111;
+}
+
+.btn-primary{
+background:#2563eb;
+color:white;
+}
+
+select{
+padding:8px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+.hero{
+display:grid;
+grid-template-columns:1.3fr .7fr;
+gap:30px;
+padding:80px 0 40px;
+}
+
+.hero img{
+max-width:260px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+footer{
+margin-top:80px;
+padding:30px 0;
+border-top:1px solid #eee;
+color:#777;
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="nav">
+<strong>Kapseller LLC</strong>
+
+<div class="nav-right">
+
+<select onchange="changeLang(this.value)">
+<option value="ja">日本語</option>
+<option value="en">English</option>
+<option value="tr">Türkçe</option>
+<option value="es">Español</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="ar">العربية</option>
+<option value="zh">中文</option>
+<option value="pt">Português</option>
+</select>
+
+<a class="btn btn-outline" href="mailto:info@kapseller.com">メール</a>
+
+<a class="btn btn-primary"
+href="https://wa.me/905324438816"
+target="_blank">WhatsApp</a>
+
+</div>
+</div>
+
+<div class="hero">
+
+<div>
+<h1>
+グローバルなデジタルマーケットプレイスプラットフォームを構築・運営
+</h1>
+
+<p>
+Kapseller LLC は国際利用を目的とした独自ソフトウェア
+プラットフォームを開発・所有・運営しています。
+外部コンサルティングではなく、
+社内プロダクト開発とライフサイクル管理に注力しています。
+</p>
+
+</div>
+
+<div>
+<img src="../assets/kapseller.png">
+</div>
+
+</div>
+
+<h2>開発中のプラットフォーム</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="../assets/tutoryum.png" height="50">
+<p>
+Tutoryum は、学習者と講師を構造化された
+デジタルワークフローで結びつける教育型マーケットプレイスです。
+</p>
+</div>
+
+<div class="card">
+<img src="../assets/tasio.png" height="50">
+<p>
+Tasio は輸送参加者間の運用マッチングを促進する
+物流調整マーケットプレイスです。
+</p>
+</div>
+
+</div>
+
+<h2>企業範囲</h2>
+
+<div class="card">
+<p>
+Kapseller LLC は内部発のデジタル事業を設計・開発・管理し、
+プラットフォーム設計、エンジニアリング、
+検証、展開準備までを担います。
+</p>
+</div>
+
+<h2>連絡先</h2>
+
+<div class="card">
+<p>
+info@kapseller.com<br>
+WhatsApp: +90 532 443 88 16
+</p>
+</div>
+
+<footer>
+© 2025 Kapseller LLC — 米国ワイオミング州
+</footer>
+
+</div>
+
+<script>
+
+function changeLang(l){
+localStorage.setItem("site_lang",l)
+
+if(l==="en") location.href="/";
+else if(l==="tr") location.href="/tr/";
+else if(l==="es") location.href="/es/";
+else if(l==="de") location.href="/de/";
+else if(l==="fr") location.href="/fr/";
+else if(l==="ar") location.href="/ar/";
+else if(l==="zh") location.href="/zh/";
+else if(l==="pt") location.href="/pt/";
+else location.href="/ja/";
+}
+
+</script>
+
+</body>
+</html>
